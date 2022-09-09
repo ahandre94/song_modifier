@@ -47,7 +47,10 @@ class Modifier:
         The first track is the vocal track (vocal.wav), the second is the instrumental
         track (accompaniment.wav).
         """
-        song, samplerate = librosa.load(self.in_file, sr=None)
+        try:
+            song, samplerate = librosa.load(self.in_file, sr=None)
+        except:
+            raise ValueError
         length = librosa.get_duration(song, samplerate) or 600
 
         log.info('%s: Performing source separation using Spleeter', self.in_file)
