@@ -1,0 +1,4 @@
+keras-nightly==2.11.0.dev2022090807
+tb-nightly==2.10.0a20220811
+tf-estimator-nightly==2.11.0.dev2022090808
+tf-nightly-gpu==2.11.0.dev20220812

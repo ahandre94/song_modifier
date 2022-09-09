@@ -32,6 +32,10 @@ e dare il seguente comando per aggiungere Rubber Band al PATH.
 
 Sarà necessario riavviare il computer.
 
+#### CUDA Toolkit
+Se si ha una GPU NVIDIA, per TensorFlow è necessario (anche se non obbligatorio)
+scaricare il CUDA Toolkit (https://developer.nvidia.com/cuda-downloads) e installarlo.
+
 ## Preparazione
 Prima di eseguire effettivamente lo script è necessario creare l'ambiente virtuale
 e installare le dipendenze per Python.
@@ -51,6 +55,12 @@ del venv e l'installazione dei pacchetti.
 ```
 > .\Scripts\activate
 > pip install -r requirements.txt
+```
+
+Se si possiede una GPU NVIDIA e si è installato il CUDA Toolkit, installare anche
+i pacchetti richiesti.
+```
+> pip install -r requirements_cuda.txt
 ```
 
 ## Esecuzione
