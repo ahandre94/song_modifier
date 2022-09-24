@@ -85,17 +85,15 @@ class Modifier:
         default_options = f'-ac {channels} -vn -map_metadata -1'
         global_options = '-y'
 
-        if output_format == 'wav':
-            output_options = default_options
-        elif output_format == 'webm':
-            output_options = f'-b:a {BITRATE_WEBM}k -acodec libvorbis {default_options}'
-        elif output_format == 'mp3':
-            output_options = f'-b:a {BITRATE_MP3}k -acodec libmp3lame {default_options}'
-        elif output_format == 'm4a':
-            output_options = f'-b:a {BITRATE_AAC}k -acodec aac {default_options}'
-        elif output_format == 'flac':
-            output_options = f'-acodec flac {default_options}'
-        else:
+        output_options = {
+            'wav': default_options,
+            'webm': f'-b:a {BITRATE_WEBM}k -acodec libvorbis {default_options}',
+            'mp3': f'-b:a {BITRATE_MP3}k -acodec libmp3lame {default_options}',
+            'm4a': f'-b:a {BITRATE_AAC}k -acodec aac {default_options}',
+            'flac': f'-acodec flac {default_options}'
+        }.get(output_format)
+
+        if output_options is None:
             raise RuntimeError('Invalid output format')
 
         log.info('Transcoding "%s" to "%s"', self.in_file, output_format)
