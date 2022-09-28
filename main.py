@@ -1,9 +1,8 @@
-import os
 import sys
 import argparse
 import logging
 
-from modifier import Modifier
+from utils import main
 import log_util
 
 
@@ -26,17 +25,6 @@ def parse_args():
     parser.add_argument('-d', '--debug', dest='debug', action='store_true',
                         help='Debug mode')
     return parser.parse_args()
-
-
-def make_dir(path):
-    if not os.path.exists(path):
-        os.makedirs(path)
-
-
-def main(audio, pitch, split, format, output):
-    make_dir(output)
-    modifier = Modifier(audio, output)
-    modifier.complete_modify_song(pitch, split, format)
 
 
 if __name__ == '__main__':

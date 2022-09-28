@@ -71,7 +71,9 @@ class Modifier:
                 `FFExecutableNotFoundError` in case the executable path passed was not valid
         """
         base_file = os.path.join(self.output_folder, self.out_file)
-        out_file_pitch, _ = os.path.splitext(self.in_file)
+        out_file_pitch, ext = os.path.splitext(self.in_file)
+        if ext.replace('.', '').isdigit():
+            out_file_pitch = f'{out_file_pitch}{ext}'
         out_file = f'{out_file_pitch}.{output_format}' if semitones else f'{base_file}.{output_format}'
 
         if type is not None:
