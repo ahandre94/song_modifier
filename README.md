@@ -62,8 +62,13 @@ i pacchetti richiesti.
 ```
 > pip install -r requirements_cuda.txt
 ```
+## Esecuzione (interfaccia grafica)
+Sempre da terminale e con il venv attivato:
+```
+> python gui.py [-h] [-d]
+```
 
-## Esecuzione
+## Esecuzione (terminale)
 Sempre da terminale e con il venv attivato:
 ```
 > python main.py [-h] [-a AUDIO] [-p PITCH] [-s] [-f FORMAT] [-o OUTPUT] [-d]
