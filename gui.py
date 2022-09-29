@@ -96,7 +96,7 @@ class Gui(QMainWindow):
 
     def custom(self):
         self.semitones = QLineEdit()
-        self.semitones.setPlaceholderText('+1, -1, +1.5, ...')
+        self.semitones.setPlaceholderText('Semitones: +1, -1, +1.5, ...')
 
         self.yes = QRadioButton('Yes')
         self.no = QRadioButton('No')
